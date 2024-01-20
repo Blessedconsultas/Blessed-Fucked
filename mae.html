@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta de Mãe</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #ff5252;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-top: 50px;
+        }
+
+        .consulta-form-mae {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 30px;
+        }
+
+        label {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .consulta-input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .consulta-button {
+            background-color: #ff5252; /* Cor para Mãe */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .consulta-button:hover {
+            background-color: #cc0000;
+        }
+
+        .consulta-resultado {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+            white-space: pre-wrap;
+            font-size: 16px;
+            overflow: auto;
+            max-height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Consulta de Mãe</h1>
+    <form class="consulta-form-mae">
+        <label for="maeInput">Digite o nome da mãe:</label>
+        <input type="text" id="maeInput" class="consulta-input" placeholder="Ex: Maria da Silva">
+        <input type="button" value="Consultar" onclick="consultarMae()" class="consulta-button">
+    </form>
+    <pre id="resultadoMae" class="consulta-resultado"></pre>
+
+    <script>
+        function consultarMae() {
+            const mae = document.getElementById('maeInput').value;
+            const redirectUrl = `https://worldata.online/api?token=387a4560-4566-4f75-af1b-555c177a4fa3&type=mae&query=${mae}`;
+            window.location.href = redirectUrl;
+        }
+    </script>
+</body>
+
+</html>

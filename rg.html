@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta por RG</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #ff5252;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-top: 50px;
+        }
+
+        #formRG {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 30px;
+        }
+
+        label {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        #rgInput {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="button"] {
+            background-color: #ff5252;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="button"]:hover {
+            background-color: #cc0000;
+        }
+
+        #resultadoRG {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+            white-space: pre-wrap;
+            font-size: 16px;
+            overflow: auto;
+            max-height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Consulta por RG</h1>
+    <form id="formRG">
+        <label for="rgInput">Digite o RG:</label>
+        <input type="text" id="rgInput" placeholder="Ex: 123456789">
+        <input type="button" value="Consultar" onclick="consultarRG()">
+    </form>
+    <pre id="resultadoRG"></pre>
+
+    <script>
+        function consultarRG() {
+            const rg = document.getElementById('rgInput').value;
+            const redirectUrl = `https://worldata.online/api?token=387a4560-4566-4f75-af1b-555c177a4fa3&type=rg2&query=${rg}`;
+            window.location.href = redirectUrl;
+        }
+    </script>
+</body>
+
+</html>

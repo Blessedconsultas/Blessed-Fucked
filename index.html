@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Blessed Buscas</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estilos da tela de login */
+        .login-container {
+            background-image: url('https://steamuserimages-a.akamaihd.net/ugc/5100921132464001344/A3A6995917F69B78D9CF69DB504E8329054B70BB/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true');
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            color: #ff5252;
+        }
+
+        .login-form {
+            background-color: rgba(26, 26, 26, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px 5px #fff;
+            text-align: center;
+            max-width: 400px;
+            width: 80%;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: calc(100% - 22px);
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            background-color: #ff5252;
+            color: white;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #cc0000;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            box-shadow: 0 0 5px 1px #ff5252;
+        }
+
+        /* Estilos da página principal após o login */
+        #container {
+            display: none;
+            background-color: #000;
+            color: #ff5252;
+            width: 100%;
+            padding-top: 50px;
+            box-sizing: border-box;
+            background-image: url('https://steamuserimages-a.akamaihd.net/ugc/5100921132464001344/A3A6995917F69B78D9CF69DB504E8329054B70BB/?imw=1920&imh=1080&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .botoes-consulta {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .consulta-btn {
+            background-color: #ff5252;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .consulta-btn:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container" id="login-container">
+        <!-- Tela de login -->
+        <h1>Blessed Login</h1>
+        <form class="login-form" id="login-form" action="#" method="post">
+            <input type="text" name="username" id="username" placeholder="Usuário">
+            <br>
+            <input type="password" name="password" id="password" placeholder="Senha">
+            <br>
+            <input type="submit" value="Entrar" onclick="realizarLogin(event)">
+        </form>
+    </div>
+
+    <div id="container">
+        <!-- Conteúdo da página principal -->
+        <h1>Blessed Buscas</h1>
+        <div class="botoes-consulta">
+            <!-- Adicione botões para diferentes tipos de consultas -->
+            <button class="consulta-btn" onclick="redirecionar('cpf.html')">Consulta por CPF</button>
+            <button class="consulta-btn" onclick="redirecionar('telefone.html')">Consulta por Telefone</button>
+            <button class="consulta-btn" onclick="redirecionar('nome.html')">Consulta por Nome</button>
+            <button class="consulta-btn" onclick="redirecionar('rg.html')">Consulta por RG</button>
+            <button class="consulta-btn" onclick="redirecionar('email.html')">Consulta por Email</button>
+            <button class="consulta-btn" onclick="redirecionar('vizinhos.html')">Consulta de Vizinhos</button>
+            <button class="consulta-btn" onclick="redirecionar('placa.html')">Consulta por Placa de Carro</button>
+            <button class="consulta-btn" onclick="redirecionar('chassi.html')">Consulta por Chassi</button>
+            <button class="consulta-btn" onclick="redirecionar('motor.html')">Consulta por Motor</button>
+            <button class="consulta-btn" onclick="redirecionar('nascimento.html')">Consulta por Nascimento</button>
+            <button class="consulta-btn" onclick="redirecionar('pai.html')">Consulta por Pai</button>
+            <button class="consulta-btn" onclick="redirecionar('mae.html')">Consulta por Mãe</button>
+            <button class="consulta-btn" onclick="redirecionar('titulodeeleitor.html')">Consulta por Título de Eleitor</button>
+        </div>
+    </div>
+
+    <script>
+        function realizarLogin(event) {
+            // Lógica de login (substitua pelo seu código)
+            var usuario = document.getElementById('username').value;
+            var senha = document.getElementById('password').value;
+
+            // Exemplo de lógica de login simples (substitua pelo seu código real)
+            if ((usuario === 'pedro' && senha === 'gostoso') || (usuario === 'gusta' && senha === 'gordo')) {
+                // Se o login for bem-sucedido, mostrar a página principal
+                document.getElementById('login-container').style.display = 'none';
+                document.getElementById('container').style.display = 'block';
+            } else {
+                // Se o login falhar, você pode exibir uma mensagem de erro aqui
+                alert('Credenciais inválidas. Tente novamente.');
+            }
+
+            // Impede o envio do formulário (que recarregaria a página)
+            event.preventDefault();
+        }
+
+        // Adicione aqui as funções de consulta conforme o código anterior
+        function consultarTelefone() {
+            // Adicione aqui a lógica de consulta por telefone
+            console.log("Consulta por Telefone");
+        }
+
+        function consultarNome() {
+            // Adicione aqui a lógica de consulta por nome
+            console.log("Consulta por Nome");
+        }
+
+        function consultarRG() {
+            // Adicione aqui...
+        }
+
+        function redirecionar(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+
+</html>

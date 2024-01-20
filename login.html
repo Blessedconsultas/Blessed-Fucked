@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Blessed Buscas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://steamuserimages-a.akamaihd.net/ugc/5100921132464001344/A3A6995917F69B78D9CF69DB504E8329054B70BB/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true');
+            background-size: cover;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: rgba(26, 26, 26, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px 5px #fff;
+            text-align: center;
+            max-width: 400px;
+            width: 80%;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: calc(100% - 22px);
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            background-color: #2f2f2f;
+            color: white;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"] {
+            background-color: red;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #cc0000;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            box-shadow: 0 0 5px 1px #ff5252;
+        }
+
+        #container {
+            display: none;
+            text-align: center;
+            width: 80%;
+        }
+
+        .consulta-btn {
+            background-color: #ff5252;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .consulta-btn:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container" id="login-container">
+        <h1>Blessed Consultas</h1>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Usuário">
+            <br>
+            <input type="password" id="password" placeholder="Senha">
+            <br>
+            <input type="submit" value="Entrar">
+        </form>
+    </div>
+
+    <div id="container">
+        <h1>Blessed Buscas</h1>
+        <button class="consulta-btn" onclick="consultar('cep')">Consultar CEP</button>
+        <button class="consulta-btn" onclick="consultar('ddd')">Consultar DDD</button>
+        <button class="consulta-btn" onclick="consultar('ip')">Consultar IP</button>
+    </div>
+
+    <script>
+        function consultar(tipo) {
+            if (tipo === 'cep') {
+                alert('Consulta de CEP selecionada.');
+                // Lógica para consultar CEP
+            } else if (tipo === 'ddd') {
+                alert('Consulta de DDD selecionada.');
+                // Lógica para consultar DDD
+            } else if (tipo === 'ip') {
+                alert('Consulta de IP selecionada.');
+                // Lógica para consultar IP
+            }
+        }
+
+        document.getElementById('login-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const users = [
+                { username: 'pedro', password: 'gostoso' },
+                { username: 'gusta', password: 'caganero' },
+                { username: 'maakio', password: 'viadonio' },
+                { username: 'maria', password: 'princesa' },
+                // Adicione mais usuários aqui...
+            ];
+
+            const user = users.find(user => user.username === username && user.password === password);
+
+            if (user) {
+                document.getElementById('login-container').style.display = 'none';
+                document.getElementById('container').style.display = 'block';
+            } else {
+                alert('Usuário ou senha incorretos.');
+            }
+        });
+    </script>
+</body>
+
+</html>

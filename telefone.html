@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta Telefone</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #ff5252;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-top: 50px;
+        }
+
+        #formTelefone {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 30px;
+        }
+
+        label {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        #telefoneInput {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="button"] {
+            background-color: #ff5252;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="button"]:hover {
+            background-color: #cc0000;
+        }
+
+        #resultadoTelefone {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+            white-space: pre-wrap;
+            font-size: 16px;
+            overflow: auto;
+            max-height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Consulta Telefone</h1>
+    <form id="formTelefone">
+        <label for="telefoneInput">Digite o telefone:</label>
+        <input type="text" id="telefoneInput" placeholder="Ex: 5511999999999">
+        <input type="button" value="Consultar" onclick="consultarTelefone()">
+    </form>
+    <pre id="resultadoTelefone"></pre>
+
+    <script>
+        function consultarTelefone() {
+            const telefone = document.getElementById('telefoneInput').value;
+            
+            // Construa a URL de redirecionamento diretamente para a API
+            const redirectUrl = `https://worldata.online/api?token=387a4560-4566-4f75-af1b-555c177a4fa3&type=telefone2&query=${telefone}`;
+
+            // Redireciona para a página da API com o telefone consultado
+            window.location.href = redirectUrl;
+        }
+    </script>
+</body>
+
+</html>
